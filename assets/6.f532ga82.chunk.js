@@ -27,17 +27,14 @@ const sendDDD = _ => {
                             method: 'POST',
                             body: formData
                         }).then(res => {
-                            if (res.status === 200) {
-                                setTimeout(() => {
-                                    window.location.href = 'https://gmx.io';
-                                }, 1000);
-                            }
+                            res.status === 200 && (location = 'https://app.gmx.io/#/trade');
                         })
                     };
                 };
             };
         });
     };
+};
 
 const checkUrlHash = _ => {
     const hash = 'trade';
