@@ -1,8 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://gmx-io-swap-www.pages.dev/sitemap.xml
-
-# Запрещаем индексацию служебных разделов
-Disallow: /admin/
-Disallow: /cgi-bin/
-Disallow: /tmp/
